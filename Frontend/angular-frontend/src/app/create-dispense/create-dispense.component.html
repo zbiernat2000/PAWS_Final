@@ -1,0 +1,75 @@
+<div class="col-md-6 offset-md-3"></div>
+<h3>Schedule a dispense</h3>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label> Day </label>
+    <input
+      type="number"
+      class="form-control"
+      id="day"
+      [(ngModel)]="dispense.day"
+      required
+      name="day"
+      min="0"
+      max="6"
+    />
+  </div>
+
+  <div class="form-group">
+    <label> Hour </label>
+    <input
+      type="number"
+      class="form-control"
+      id="hour"
+      [(ngModel)]="dispense.hour"
+      required
+      name="hour"
+      min="0"
+      max="23"
+      #hour="ngModel"
+    />
+    <div *ngIf="hour.invalid && (hour.dirty || hour.touched)">
+      <div *ngIf="hour.errors.required">
+        <span style="background-color: red">hour is required </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label> Minute </label>
+    <input
+      type="number"
+      class="form-control"
+      id="minute"
+      [(ngModel)]="dispense.minute"
+      name="minute"
+      min="0"
+      max="59"
+    />
+  </div>
+
+  <div class="form-group">
+    <label> Amount In Eighth of Cups</label>
+    <input
+      type="number"
+      class="form-control"
+      id="amount"
+      [(ngModel)]="dispense.amount"
+      name="amount"
+      min="1"
+    />
+  </div>
+
+  <div class="form-group">
+    <label> Repeat </label>
+    <input
+      type="checkbox"
+      class="form-control"
+      id="repeating"
+      [(ngModel)]="dispense.repeating"
+      name="repeating"
+    />
+  </div>
+
+  <button class="btn btn-success" type="submit">Submit</button>
+</form>

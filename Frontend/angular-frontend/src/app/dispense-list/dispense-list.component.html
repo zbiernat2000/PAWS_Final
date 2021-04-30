@@ -1,0 +1,25 @@
+<h2 class="text-center">Scheduled dispenses</h2>
+<table class="table table-bordered table-dark table-responsive-sm">
+    <thead>
+        <tr>
+            <th> Day </th>
+            <th class> Time </th>
+            <th class> Amount </th>
+            <th class> Repeat </th>
+            <th class> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dispense of dispenses">
+            <td> {{ dispense.day | formatDay }}</td>
+            <td> {{ dispense.hour | getTime: dispense.minute  }}</td>
+            <td> {{ dispense.amount | formatAmount }}</td>
+            <td> {{ dispense.repeating | isRepeating }}</td>
+            <td>
+                <button (click)="updateDispense(dispense.id)" class="btn btn-info"> Update </button>
+                <button (click)="deleteDispense(dispense.id)" class="btn btn-danger" style="margin-left:15px"> Delete </button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

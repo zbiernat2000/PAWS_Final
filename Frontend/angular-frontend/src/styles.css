@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body{
+    background-color: rgba(20, 16, 16, 0.856);
+    color:white
+}
+
+nav{
+    background-color: rgba(158, 158, 158, 0.384);
+}
